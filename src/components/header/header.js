@@ -23,16 +23,16 @@ export default function Header() {
       <nav className='mr-8 text-center hidden  md:block '>
         <ul className='flex flex-row '>
           <li className='basis-1/4  px-4  transition-all duration-100 ease-in hover:rounded-md hover:bg-slate-100  '>
-            <a href='#'>Home</a>
+            <a href='#home'>Home</a>
           </li>
           <li className='basis-1/1 px-4 transition-all duration-75 ease-in hover:rounded-md hover:bg-slate-100 '>
-            <a href='#'>About</a>
+            <a href='#about'>About</a>
           </li>
           <li className='basis-1/4 px-4 transition-all duration-75 ease-in hover:rounded-md hover:bg-slate-100'>
-            <a href='#'>Contact</a>
+            <a href='#contact'>Contact</a>
           </li>
           <li className='basis-1/4 px-4 mx-4 transition-all duration-75 ease-in hover:rounded-md hover:bg-slate-100 '>
-            <a href='#'>Portfolio</a>
+            <a href='#portfolio'>Portfolio</a>
           </li>
         </ul>
       </nav>
