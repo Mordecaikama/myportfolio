@@ -1,0 +1,37 @@
+use redux and tailwind
+
+<header>
+  <logo></logo>
+
+  <nav></nav>
+</header>
+
+<jumbotron>
+  <div className="left">text</div>
+  <div className="right"><img src="" alt="" /></div>
+</jumbotron>
+
+overview of works 
+4 or 3 of boxes
+
+testimonials
+by graham 
+evans 
+oduro
+
+contacts
+
+m-16 max-w-screen-lg
+
+pay = even
+seat = even 
+
+if they are odd then prize boom
+
+index positionof  array is seat no
+
+pickWinners([]){
+  return [
+    {seat:3,ticketCost:7}
+  ]
+}
