@@ -1,0 +1,94 @@
+{
+  "main": {
+    "name": "Mordecai Agypaong",
+    "occupation": "Professional Nurse",
+    "description": "I eat, sleep and breathe React",
+    "image": "profilepic.jpg",
+    "bio": "I am a passionate and hardworking Developer with a strong commitment to excellence and continuous improvement. My journey in software development is driven by a deep love for technology and an eagerness to learn and grow. I thrive in collaborative environments where teamwork and consistency are key to delivering high-quality solutions.",
+    "contactmessage": "Get in touch with me to be a part of the PAPA fam!",
+    "email": "agyapongmordecai@gmail.com",
+    "phone": "+44 1234567899",
+    "address": {
+      "street": "123 Dev Lane",
+      "city": "Manchester",
+      "state": "Stockport",
+      "zip": "M19 3NA"
+    },
+    "website": "https://www.papareact.com/course"
+  },
+  "resume": {
+    "skillmessage": "My Programming Language Proficiency",
+    "education": [
+      {
+        "school": "University of Kent - UK",
+        "degree": "Bachelor's Degree, Computer Science",
+        "graduated": "July 2016",
+        "description": "Graduated with First Class Upper Honours"
+      }
+    ],
+    "work": [
+      {
+        "company": "KAMA MEDIA",
+        "title": "Founder and CEO",
+        "years": "May 2022 - Present",
+        "description": "WORKING HARD TO BUILD THE MOST ROBUST APP EVER IN THE WORLD."
+      }
+    ],
+    "skills": [
+      {
+        "name": "ReactJs",
+        "level": "100%"
+      },
+      {
+        "name": "Python",
+        "level": "85%"
+      },
+      {
+        "name": "Git",
+        "level": "70%"
+      },
+      {
+        "name": "JavaScript",
+        "level": "99%"
+      },
+      {
+        "name": "Web Development",
+        "level": "95%"
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "ELECTION APP (React JS)",
+        "category": "",
+        "image": "",
+        "url": "http://election.ghkama.org/login"
+      },
+      {
+        "title": "KAMA POS (React JS)",
+        "category": "",
+        "image": "",
+        "url": "http://kamapos.ghkama.org/login"
+      },
+      {
+        "title": "Bible App (React JS)",
+        "category": "",
+        "image": "",
+        "url": "https://biblekama.org"
+      }
+    ]
+  },
+  "testimonials": {
+    "testimonials": [
+      {
+        "text": "Morde is absolutely excellent, his depth of knowledge & his mentorship really meant a lot to us... I would definitely recommend",
+        "user": "Jorge Fouto"
+      },
+      {
+        "text": "Learning with Sonny has been AWESOME, he makes learning React so easy and approachable, you'll finally feel like you know what's going on!",
+        "user": "Adam Curtis"
+      }
+    ]
+  }
+}

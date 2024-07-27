@@ -1,56 +1,50 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/header/header'
+import { Link } from 'react-router-dom'
+import Contact from './components/header/contact'
 
 function App() {
+  const [resumeData, setResumeData] = useState({})
+
+  useEffect(() => {
+    fetch('/resume.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setResumeData(data)
+      })
+  }, [])
+
+  var skills = resumeData?.resume?.skills.map(function (skills) {
+    var className = 'bar-expand ' + skills.name.toLowerCase()
+    return (
+      <li key={skills.name}>
+        <span style={{ width: skills.level }} className={className}></span>
+        <em>{skills.name}</em>
+      </li>
+    )
+  })
+
   return (
     <div className='App'>
       <Header />
 
       <section className='hero mx-auto mt-2 p-8 grid grid-cols-1 md:grid-cols-2 place-items-center gap-8 bg-slate-200 border-solid border-1 border-slate-600'>
-        <div className='left ml-24  '>
-          <h1 className='text-6xl  font-bold uppercase 2xl:text-9xl lg:text-8xl md:text-7xl  '>
+        <div className='left text-center  md:ml-24'>
+          <h1 className='text-3xl  font-bold uppercase  xs:text-4xl sm:text-6xl lg:text-8xl 2xl:text-9xl    '>
             i'm Mordecai Agyapong
           </h1>
-          <h2 className='text-6xl uppercase '>full stack Developer</h2>
+          <h2 className='text-3xl uppercase sm:text-6xl '>
+            full stack Developer
+          </h2>
           <p className=' my-4'>Excellent, Hardworking, Great Personality</p>
-
-          <button className='border-solid border-2 border-slate-700 cursor-pointer rounded-2xl p-4 text-center'>
-            Click for More
-          </button>
         </div>
-        <div className='right mt-16'>
+        <div className='right mt-8'>
           <img
-            className='w-96 object-cover h-96 rounded-full border-solid border-8 border-teal-200'
+            className='w-80 h-80  object-cover rounded-full border-solid border-8 border-teal-200 md:w-96 md:h-96'
             src={require('./assets/img/profile.jpg')}
             alt=''
           />
-        </div>
-      </section>
-
-      <section className='container mx-auto mt-40   text-center'>
-        <h1 className='text-5xl '>My Working History</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <div className='history flex flex-row justify-center align-center gap-16 text-left mt-4'>
-          <div className='card w-80 border-solid border-2 border-slate-500 rounded-md'>
-            <img
-              className='w-full'
-              src={require('./assets/img/profile.jpg')}
-              alt=''
-            />
-            <div className='card__bottom ml-2'>
-              <h4>Lorem ipsum dolor.</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur.</p>
-            </div>
-          </div>
-          <div className='card w-80 border-solid border-2 border-slate-500 rounded-md'>
-            <img
-              className=''
-              src={require('./assets/img/profile.jpg')}
-              alt=''
-            />
-            <h4>Lorem ipsum dolor.</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur.</p>
-          </div>
         </div>
       </section>
 
@@ -108,33 +102,98 @@ function App() {
         </div>
       </section>
 
-      <section className='projects container mx-auto text-center mt-[10rem]'>
-        <h1>Projects</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      <section id='about' className='bg-slate-300 p-8 md:p-26'>
+        <div className='container mx-auto max-w-7xl'>
+          <h1 className='text-center font-semibold text-4xl'>About</h1>
 
-        <div class='row flex items-center justify-between gap-4 mt-8'>
-          <div class='project-col '>
-            <img src={require('./assets/img/london.png')} alt='' />
-            <div class='layer'>
-              <h3>Bible</h3>
-            </div>
+          <p>
+            I am a passionate and hardworking Developer with a strong commitment
+            to excellence and continuous improvement. My journey in software
+            development is driven by a deep love for technology and an eagerness
+            to learn and grow. I thrive in collaborative environments where
+            teamwork and consistency are key to delivering high-quality
+            solutions.
+          </p>
+        </div>
+
+        <div className='container mx-auto max-w-7xl mt-8 flex  flex-col gap-8 md:flex-row'>
+          <div>
+            <h2 className='text-3xl font-semibold'>Contact Details</h2>
+            <p className='address'>
+              <span>Mordecai Agyapong</span>
+              <br />
+              <span>
+                123 Dev Lane
+                <br />
+                Manchester Stockport, M19 3NA
+              </span>
+              <br />
+              <span>+44 123456789</span>
+              <br />
+              <span>agyapongmordecai@gmail.com</span>
+            </p>
           </div>
-          <div class='project-col'>
-            <img src={require('./assets/img/newyork.png')} alt='' />
-            <div class='layer'>
-              <h3>POS</h3>
-            </div>
-          </div>
-          <div class='project-col'>
-            <img src={require('./assets/img/washington.png')} alt='' />
-            <div class='layer'>
-              <h3>Election</h3>
-            </div>
+
+          <div className=''>
+            <p>
+              <a
+                href=''
+                className='p-4 flex items-center gap-4 text-white bg-slate-400 rounded-lg cursor-pointer shadow-lg'
+              >
+                <i className='fa fa-download'></i>Download Resume
+              </a>
+            </p>
           </div>
         </div>
       </section>
 
-      <section className='services container mx-auto mt-[5rem] '>
+      <section
+        id='projects'
+        className='projects container mx-auto text-center mt-[10rem]'
+      >
+        <h1 className='text-3xl font-semibold'>Projects</h1>
+
+        <div class='grid gap-4 mt-8 md:grid-cols-3'>
+          <Link to='https://biblekama.org' target='_blank'>
+            <div class='project-col '>
+              <img src={require('./assets/img/bible.png')} alt='' />
+              <div class='layer'>
+                <h3>Bible</h3>
+              </div>
+            </div>
+          </Link>
+          <Link to='http://kamapos.ghkama.org/signin' target='_blank'>
+            <div class='project-col'>
+              <img src={require('./assets/img/pos.png')} alt='' />
+              <div class='layer'>
+                <h3>POS</h3>
+              </div>
+            </div>
+          </Link>
+          <Link to='http://kamaelection.ghkama.org/login' target='_blank'>
+            <div class='project-col'>
+              <img src={require('./assets/img/elect.png')} alt='' />
+              <div class='layer'>
+                <h3>Election</h3>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      <section id='resume' className='container mx-auto mt-[5rem]'>
+        <h1 className='text-center text-3xl font-bold'>Skills</h1>
+        <p className=' text-center text-2xl mb-[8 text-slate-300'>
+          {resumeData?.resume?.skillmessage}
+        </p>
+        <div>
+          <div className='bars'>
+            <ul className='skills'>{skills}</ul>
+          </div>
+        </div>
+      </section>
+
+      {/* <section className='services container mx-auto mt-[5rem] '>
         <h1 className='text-center text-5xl font-semibold mb-2 md:5xl'>
           Our Services
         </h1>
@@ -170,23 +229,30 @@ function App() {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className='contact my-40 flex justify-center items-center bg-primary h-screen text-secondary'>
-        <div className='container mx-auto text-center'>
-          <h1 className='uppercase font-medium text-center text-6xl md:text-7xl 2xl:text-8xl'>
-            Lets Start By saying Hi
-          </h1>
-          <button className='mt-8 text-2xl border-solid border-2 border-amber-200 cursor-pointer rounded-lg py-4 px-8'>
-            Email me
-          </button>
+      <section
+        id='contact'
+        className='contact my-20 p-4 flex justify-center items-center bg-primary  text-secondary md:p-16'
+      >
+        <div className='container mx-auto text-center grid md:grid-cols-2'>
+          <div className='left'>
+            <h1 className='uppercase font-medium text-center text-4xl md:text-5xl 2xl:text-8xl'>
+              Lets Start By saying Hi
+            </h1>
+            <button className='mt-8 text-2xl border-solid border-2 border-amber-200 cursor-pointer rounded-lg py-4 px-8'>
+              Email me
+            </button>
+          </div>
+          <div className='right'>
+            <Contact />
+          </div>
         </div>
       </section>
 
       {/* <! ----------- Footer ----------- !> */}
 
-      <section class='footer'>
-        <h4>About Us</h4>
+      <section class='footer p-4 '>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit Pellentesque
           aliquit turpis nulla
@@ -199,7 +265,7 @@ function App() {
           <i class='fab fa-linkedin'></i>
         </div>
         <p>
-          Made with <i class='far fa-heart'></i> by Morde
+          Made with <i class='fas fa-heart text-red-500'></i> by Morde
         </p>
       </section>
     </div>
